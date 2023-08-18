@@ -18,7 +18,7 @@ import java.awt.Color;
 	
     /** Constructs a LUT from red, green and blue byte arrays, where 'bits' 
     	must be 8 and 'size' must be less than or equal to 256. */
-    public LUT(int bits, int size, byte r[], byte g[], byte b[]) {
+    public LUT(int bits, int size, byte[] r, byte[] g, byte[] b) {
     	super(bits, size, r, g, b);
 	}
 	
@@ -41,10 +41,10 @@ import java.awt.Color;
 	}
 
 	public IndexColorModel getColorModel() {
-		if (cm==null) {
-			byte[] reds=new byte[256]; getReds(reds);
-			byte[] greens=new byte[256]; getGreens(greens);
-			byte[] blues=new byte[256]; getBlues(blues);
+		if (cm == null) {
+			byte[] reds = new byte[256]; getReds(reds);
+			byte[] greens = new byte[256]; getGreens(greens);
+			byte[] blues = new byte[256]; getBlues(blues);
 			cm = new IndexColorModel(8, getMapSize(), reds, greens, blues);
 		}
 		return cm;
